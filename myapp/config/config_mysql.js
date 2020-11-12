@@ -1,11 +1,11 @@
 module.exports = {
   "development": {
-    "username": "express-mvp-dbuser",
-    "password": '123.456',
-    "database": "express-mvp-db",
+    "username": "isradeb",
+    "password": "<>",
+    "database": "smart_remind_schema",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port" : 5432
+    "dialect": "mysql",
+    "port" : 3306
   },
   "test": {
     "username": "root",
