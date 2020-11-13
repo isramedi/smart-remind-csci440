@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "isradeb",
-    "password": "dat5Access1@3$5",
+    "password": "<>",
     "database": "smart_remind_schema",
     "host": "127.0.0.1",
     "dialect": "mysql",
