@@ -4,19 +4,24 @@ html(lang='en')
   +head("Starter MVP")
   body
     header
-      include common/navbar.pug
-      +navbar(user)
+      //include common/navbar.pug
+      //+navbar(user)
+      br
+      br
+      br
       .container
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
-            h1.mb-3 Minimum Viable Landing Page
-            p.lead This tutorial teaches you how to build a NodeJS web application covering key topics.
-            p.lead.mb-4 Learn how to launch a landing page and start collecting sales leads.
-            form(action="/", method="POST")
-              .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
-                .input-group-append
-                  button(type="submit").btn.btn-primary Get Started
+            h1.mb-3 Smart-Remind
+            p.lead Web App to never forget your importent events!
+            a(href="signup").lead.mb-4 Sign up
+            p
+            a(href="login").lead.mb-4 Login
+            //form(action="/", method="POST")
+            //  .input-group.mb-3
+            //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+            //    .input-group-append
+            //      button(type="submit").btn.btn-primary Get Started
     //h1= title
     //p Welcome to #{title}
     //form(action="/",method="POST")
