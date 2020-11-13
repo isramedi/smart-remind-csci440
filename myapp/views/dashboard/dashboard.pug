@@ -12,6 +12,7 @@ html(lang='en')
             h1.mb-3 Welcome
             p.lead Today's Reminds
             p.lead.mb-4 This week's reminds
+            a(href="/dashboard/create_remind").lead.mb-4 create reminder
 
             h1 test
             table.table
@@ -26,10 +27,16 @@ html(lang='en')
                     td
                       th(scope="col") link
                     td
-                      a(href="/dashboard/create_remind") Details
+                      a(href="/dashboard/reminder") Details
                     td
                       button(onclick=``).btn.btn-primary Delete
-
+                  tr
+                    td
+                      th(scope="col") link
+                    td
+                      a(href="/dashboard/reminder") Details
+                    td
+                      button(onclick=``).btn.btn-primary Delete
 
             //form(action="/", method="POST")
             //  .input-group.mb-3
