@@ -35,7 +35,8 @@ router.post('/lead/:lead_id/delete', landing.delete_lead);
 router.post('/lead/:lead_id/delete-json', landing.delete_lead_json);
 
 
-router.get('/dashboard', landing.get_dashboard);
+router.get('/dashboard', user.get_dashboard);
+router.get('/dashboard/create_remind', user.create_remind);
 
 
 

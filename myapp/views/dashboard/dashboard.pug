@@ -9,9 +9,28 @@ html(lang='en')
       .container
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
-            h1.mb-3 Welcome 
+            h1.mb-3 Welcome
             p.lead Today's Reminds
             p.lead.mb-4 This week's reminds
+
+            h1 test
+            table.table
+              thead
+                tr
+                  th(scope="col") Remind
+                  th(scope="col") Date
+                  th(scope="col") Done/Delete
+                tr
+              tbody
+                  tr
+                    td
+                      th(scope="col") link
+                    td
+                      a(href="/dashboard/create_remind") Details
+                    td
+                      button(onclick=``).btn.btn-primary Delete
+
+
             //form(action="/", method="POST")
             //  .input-group.mb-3
             //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control

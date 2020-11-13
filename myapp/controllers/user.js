@@ -82,3 +82,13 @@ exports.logout = function(req, res, next) {
 	req.session.destroy();
 	res.redirect('/');
 }
+
+
+exports.get_dashboard = function(req, res, next) {
+    res.render('dashboard/dashboard', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}
+exports.create_remind = function(req, res, next) {
+    res.render('remind/create_remind', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}
