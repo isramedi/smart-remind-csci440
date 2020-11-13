@@ -35,4 +35,8 @@ router.post('/lead/:lead_id/delete', landing.delete_lead);
 router.post('/lead/:lead_id/delete-json', landing.delete_lead_json);
 
 
+router.get('/dashboard', landing.get_dashboard);
+
+
+
 module.exports = router;
