@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Reminds")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar()
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1 Reminds
+            table.table
+              thead
+                tr
+                  th(scope="col") Remind
+                  th(scope="col") Date
+                  th(scope="col") Done/Delete
+                tr
+              tbody
+                //for remind in reminds
+                //  tr(id=remind.id)
+                //    td
+                //      span #{remind.title}
+                //    td
+                //      span #{remind.date}
+                //    td
+                //      button(onclick=``).btn.btn-primary Delete
+    include ../common/footer.pug
+    +footer()
+    script(src='/javascripts/leads.js')

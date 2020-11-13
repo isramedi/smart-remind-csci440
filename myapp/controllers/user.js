@@ -92,3 +92,20 @@ exports.create_remind = function(req, res, next) {
     res.render('remind/create_remind', {title: 'Express' , user: req.user });
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
+
+//exports.show_remind = function(req, res, next) {
+//	return models.Lead.findOne({
+//		where : {
+//			id : req.params.lead_id
+//		}
+//	}).then(lead => {
+//		res.render('remind/remind', { lead : lead });
+//	});
+//}
+
+exports.show_reminds = function(req, res, next) {
+//    return models.Reminder.findAll().then(reminds => {
+//        res.render('remind/reminds',{title: 'Express', reminds: reminds });
+//    })
+    res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
