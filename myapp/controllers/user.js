@@ -110,3 +110,18 @@ exports.show_reminds = function(req, res, next) {
     })
     //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }
+
+
+exports.submit_remind = function(req, res, next) {
+
+    return models.Remind.create({
+        category: req.body.remind_category,
+        title: req.body.remind_title,
+        dateOfRemind: req.body.remind_dateOfRemind,
+        type: req.body.remind_type,
+        urgency: req.body.remind_urgency,
+		users_id: req.params.user_id
+    }).then(remind => {
+        res.redirect('/dashboard/reminds');
+    })
+}

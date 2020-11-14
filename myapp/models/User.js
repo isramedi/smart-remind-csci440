@@ -34,6 +34,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     }
-  })
+  });
+  User.associate = models => {
+    User.hasMany(models.Remind, {
+      onDelete: "cascade",
+      foreignKey: 'id',
+      sourceKey: 'id'
+    });
+    User.hasMany(models.userGroupRelation, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 }

@@ -2,7 +2,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Remind = sequelize.define('Remind', {
-      id: {
+      id_remind: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
               },
               key: 'id'
         },
-        allowNull: false
+        allowNull: true
       },
       groups_id: {
       	type: DataTypes.UUID,
@@ -67,6 +67,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: true
       }
-  })
+  });
+  Remind.associate = models => {
+    Remind.belongsTo(models.User, {
+      onDelete: "cascade"
+    });
+    Remind.belongsTo(models.Group, {
+      onDelete: "cascade"
+    });
+  };
+
   return Remind;
 }

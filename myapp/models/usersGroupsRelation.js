@@ -38,6 +38,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: false
       }
-  })
+  });
+  userGroupRelation.associate = models => {
+    userGroupRelation.hasMany(models.Group, {
+      onDelete: "cascade"
+    });
+    userGroupRelation.belongsTo(models.User, {
+      onDelete: "cascade"
+    });
+  }
   return userGroupRelation;
 }

@@ -54,7 +54,7 @@ module.exports = {
               },
               key: 'id'
         },
-        allowNull: false
+        allowNull: true
       },
       groups_id: {
       	type: Sequelize.UUID,
