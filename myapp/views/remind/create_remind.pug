@@ -10,29 +10,29 @@ html(lang='en')
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
             h1.mb-3 Create Remind
-            form(action="/", method="POST")
+            form(action="/dashboard/reminds", method="POST")
               .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                input(name="remind_category", type="text", placeholder="Enter Category").form-control
                 .input-group-append
-                  button(type="submit").btn.btn-primary Get Started
 
               .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                input(name="remind_title", type="text", placeholder="Enter Title").form-control
                 .input-group-append
-                  button(type="submit").btn.btn-primary Get Started
 
               .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                input(name="remind_dateOfRemind", type="text", placeholder="Enter Date of Remind").form-control
                 .input-group-append
-                  button(type="submit").btn.btn-primary Get Started
 
               .input-group.mb-3
-                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                input(name="remind_type", type="text", placeholder="Enter Type").form-control
                 .input-group-append
-                  button(type="submit").btn.btn-primary Get Started
 
-            p.lead field
-            p.lead.mb-4 field
+              .input-group.mb-3
+                input(name="remind_urgency", type="text", placeholder="Enter Urgency").form-control
+                .input-group-append
+
+              .input-group-append
+                button(type="submit").btn.btn-primary Create Remind
             //form(action="/", method="POST")
             //  .input-group.mb-3
             //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control

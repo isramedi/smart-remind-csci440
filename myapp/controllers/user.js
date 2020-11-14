@@ -105,8 +105,8 @@ exports.create_remind = function(req, res, next) {
 //}
 
 exports.show_reminds = function(req, res, next) {
-//    return models.Reminder.findAll().then(reminds => {
-//        res.render('remind/reminds',{title: 'Express', reminds: reminds });
-//    })
-    res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+    return models.Remind.findAll().then(reminds => {
+        res.render('remind/reminds',{title: 'Express', reminds: reminds });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }

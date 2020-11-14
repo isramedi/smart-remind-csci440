@@ -13,19 +13,40 @@ html(lang='en')
             table.table
               thead
                 tr
-                  th(scope="col") Remind
-                  th(scope="col") Date
+                  th(scope="col") Category
+                  th(scope="col") Title
+                  th(scope="col") notes
+                  th(scope="col") Date of Remind
+                  th(scope="col") Type
+                  th(scope="col") Urgency
+                  th(scope="col") Expired
+                  th(scope="col") <>user created
+                  th(scope="col") <>group
                   th(scope="col") Done/Delete
                 tr
               tbody
-                //for remind in reminds
-                //  tr(id=remind.id)
-                //    td
-                //      span #{remind.title}
-                //    td
-                //      span #{remind.date}
-                //    td
-                //      button(onclick=``).btn.btn-primary Delete
+                for remind in reminds
+                  tr(id=remind.id)
+                    td
+                      span #{remind.category}
+                    td
+                      span #{remind.title}
+                    td
+                      span #{remind.notes}
+                    td
+                      span #{remind.dateOfRemind}
+                    td
+                      span #{remind.type}
+                    td
+                      span #{remind.urgency}
+                    td
+                      span #{remind.expired}
+                    td
+                      span #{remind.users_id}
+                    td
+                      span #{remind.groups_id}
+                    td
+                      button(onclick=`deleteRemind('${remind.id}')`).btn.btn-primary Delete
     include ../common/footer.pug
     +footer()
     script(src='/javascripts/leads.js')

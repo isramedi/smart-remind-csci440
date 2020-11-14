@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
               },
               key: 'id'
         },
-        allowNull: false
+        allowNull: true
       }
   })
   return Remind;
