@@ -6,6 +6,7 @@ let flash = require('connect-flash');
 // validtor import
 const {isEmpty} = require('lodash');
 const {validateUser} = require('../validators/signup');
+const {validateCreateUserFields} = require('../validators/signup');
 
 // importing validator
 //const { validateUser } = require('../validators/signup');

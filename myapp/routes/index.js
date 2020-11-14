@@ -35,10 +35,11 @@ router.post('/lead/:lead_id/delete', landing.delete_lead);
 router.post('/lead/:lead_id/delete-json', landing.delete_lead_json);
 
 
-router.get('/dashboard', user.get_dashboard);
-router.get('/dashboard/create_remind', user.create_remind);
-//router.get('/dashboard/remind', user.show_remind);
-router.get('/dashboard/reminds', user.show_reminds);
+// user log in only pages
+router.get('/dashboard', isLoggedIn, user.get_dashboard);
+router.get('/dashboard/create_remind', isLoggedIn, user.create_remind);
+//router.get('/dashboard/remind', isLoggedIn, user.show_remind);
+router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 
 
 

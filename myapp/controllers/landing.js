@@ -1,7 +1,11 @@
 const models = require('../models')
 
 exports.get_landing = function(req, res, next) {
+    if(req.user){
+        res.redirect("/dashboard");
+    } else {
     res.render('landing', { title: 'Express' , user: req.user});
+    }
 }
 
 
