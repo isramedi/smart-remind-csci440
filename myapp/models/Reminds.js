@@ -2,7 +2,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Remind = sequelize.define('Remind', {
-      id_remind: {
+      id: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       	type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      users_id: {
+      UserId: {
       	type: DataTypes.UUID,
         references: {
               model: {
@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: true
       },
-      groups_id: {
+      GroupId: {
       	type: DataTypes.UUID,
         references: {
               model: {

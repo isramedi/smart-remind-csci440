@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      users_id: {
+      UserId: {
       	type: Sequelize.UUID,
         references: {
               model: {
@@ -27,7 +27,7 @@ module.exports = {
         },
         allowNull: false
       },
-      groups_id: {
+      GroupId: {
       	type: Sequelize.UUID,
         references: {
               model: {

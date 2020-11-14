@@ -45,7 +45,7 @@ module.exports = {
       	type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      users_id: {
+      UserId: {
       	type: Sequelize.UUID,
         references: {
               model: {
@@ -56,7 +56,7 @@ module.exports = {
         },
         allowNull: true
       },
-      groups_id: {
+      GroupId: {
       	type: Sequelize.UUID,
         references: {
               model: {
