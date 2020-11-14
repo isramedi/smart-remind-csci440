@@ -1,0 +1,40 @@
+/* jshint indent: 2 */
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var Group = sequelize.define('Group', {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      groupname: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
+      creator_id: {
+        allowNull: true,
+        type: DataTypes.UUID
+      },
+      users_id: {
+      	type: DataTypes.UUID,
+        references: {
+              model: {
+                  tableName: 'Users',
+                  schema: 'public'
+              },
+              key: 'id'
+        },
+        allowNull: false
+      }
+  })
+  return Group;
+}
