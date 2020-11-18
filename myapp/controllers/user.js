@@ -125,3 +125,56 @@ exports.submit_remind = function(req, res, next) {
         res.redirect('/dashboard/reminds');
     })
 }
+
+
+//////////////
+
+
+exports.show_edit_remind = function(req, res, next) {
+    return models.Remind.findOne({
+        where : {
+            id : req.params.remind_id
+        }
+    }).then(remind => {
+        res.render('remind/edit_remind', { remind : remind });
+    });
+}
+
+exports.edit_remind = function(req, res, next) {
+
+    return models.Remind.update({
+        category: req.body.remind_category,
+        title: req.body.remind_title,
+        dateOfRemind: req.body.remind_dateOfRemind,
+        type: req.body.remind_type,
+        urgency: req.body.remind_urgency,
+	//UserId: req.params.user_id
+    }, {
+        where: {
+            id: req.params.remind_id
+        }
+    }).then(result => {
+        res.redirect('/dashboard/remind/' + req.params.remind_id);
+    })
+}
+
+
+//exports.delete_lead = function(req, res, next) {
+//	return models.Lead.destroy({
+//		where: {
+//			id: req.params.lead_id
+//		}
+//	}).then(result => {
+//		res.redirect('/leads');
+//	})
+//}
+//
+//exports.delete_lead_json = function(req, res, next) {
+//	return models.Lead.destroy({
+//		where: {
+//			id: req.params.lead_id
+//		}
+//	}).then(result => {
+//		res.send({ msg: "Success" });
+//	})
+//}

@@ -1,0 +1,46 @@
+// extends ../lead
+//
+// block content
+//   form(action="/lead/" + lead.id + "/edit",method="POST")
+//       input(name="lead_email", type="email",placeholder="Enter your email address", value=lead.email)
+//       button(type="submit") Save
+
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Edit Remind")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(users)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1 Edit Remind
+            form(action="/dashboard/remind/"+remind.id+"/edit", method="POST")
+
+              .input-group.mb-3
+                input(name="remind_category", type="text", placeholder="Enter Category").form-control
+                .input-group-append
+
+              .input-group.mb-3
+                input(name="remind_title", type="text", placeholder="Enter Title").form-control
+                .input-group-append
+
+              .input-group.mb-3
+                input(name="remind_dateOfRemind", type="text", placeholder="Enter Date of Remind").form-control
+                .input-group-append
+
+              .input-group.mb-3
+                input(name="remind_type", type="text", placeholder="Enter Type").form-control
+                .input-group-append
+
+              .input-group.mb-3
+                input(name="remind_urgency", type="text", placeholder="Enter Urgency").form-control
+                .input-group-append
+
+              .input-group.mb-3
+                .input-group-append
+                  button(type="submit").btn.btn-primary Save
+    include ../common/footer.pug
+    +footer()

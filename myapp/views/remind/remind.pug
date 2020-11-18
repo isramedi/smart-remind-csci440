@@ -60,9 +60,9 @@ html(lang='en')
                     td
                       span #{remind.groups_id}
                     td
-                      a(href="/remind/" + remind.id + "/edit") Edit
+                      a(href="/dashboard/remind/" + remind.id + "/edit") Edit
                     td
-                      form(action="/remind/" + remind.id + "/delete", method="POST")
+                      form(action="/dashboard/remind/" + remind.id + "/delete", method="POST")
                         button(type="submit").btn.btn-primary Delete
     include ../common/footer.pug
     +footer()
