@@ -94,15 +94,15 @@ exports.create_remind = function(req, res, next) {
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
 
-//exports.show_remind = function(req, res, next) {
-//	return models.Lead.findOne({
-//		where : {
-//			id : req.params.lead_id
-//		}
-//	}).then(lead => {
-//		res.render('remind/remind', { lead : lead });
-//	});
-//}
+exports.show_remind = function(req, res, next) {
+	return models.Remind.findOne({
+		where : {
+			id : req.params.remind_id
+		}
+	}).then(remind => {
+		res.render('remind/remind', { remind : remind });
+	});
+}
 
 exports.show_reminds = function(req, res, next) {
     return models.Remind.findAll().then(reminds => {

@@ -39,7 +39,7 @@ router.post('/lead/:lead_id/delete-json', landing.delete_lead_json);
 router.get('/dashboard', isLoggedIn, user.get_dashboard);
 router.get('/dashboard/create_remind', isLoggedIn, user.create_remind);
 router.post('/dashboard/create_remind', isLoggedIn, user.submit_remind);
-//router.get('/dashboard/remind', isLoggedIn, user.show_remind);
+router.get('/dashboard/remind/:remind_id', isLoggedIn, user.show_remind);
 router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 
 

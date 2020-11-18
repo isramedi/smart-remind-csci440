@@ -22,6 +22,7 @@ html(lang='en')
                   th(scope="col") Expired
                   th(scope="col") <>user created
                   th(scope="col") <>group
+                  th(scope="col") DETAILS
                   th(scope="col") Done/Delete
                 tr
               tbody
@@ -45,6 +46,8 @@ html(lang='en')
                       span #{remind.UserId}
                     td
                       span #{remind.groups_id}
+                    td
+                      a(href="/dashboard/remind/" + remind.id) Details
                     td
                       button(onclick=`deleteRemind('${remind.id}')`).btn.btn-primary Delete
     include ../common/footer.pug
