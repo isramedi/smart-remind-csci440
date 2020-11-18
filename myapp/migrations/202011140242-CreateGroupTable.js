@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      groupname: {
+      name: {
         allowNull: false,
         type: Sequelize.STRING
       },

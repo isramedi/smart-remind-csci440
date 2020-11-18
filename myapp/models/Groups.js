@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.DATE
       },
-      groupname: {
+      name: {
         allowNull: false,
         type: DataTypes.STRING
       },

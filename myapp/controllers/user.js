@@ -178,3 +178,96 @@ exports.delete_remind_json = function(req, res, next) {
 		res.send({ msg: "Success - dynamically deleted remind" });
 	})
 }
+
+
+
+
+
+
+///////////////////
+////////// groups
+//////////////////
+
+
+exports.create_group = function(req, res, next) {
+    res.render('group/create_group', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}
+
+exports.submit_group = function(req, res, next) {
+
+    return models.Group.create({
+        name: req.body.group_name,
+	//UserId: req.params.user_id
+    }).then(group => {
+        res.redirect('/dashboard/groups');
+    })
+}
+
+exports.show_group = function(req, res, next) {
+	return models.Group.findOne({
+		where : {
+			id : req.params.group_id
+		}
+	}).then(group => {
+		res.render('group/group', { group : group });
+	});
+}
+
+exports.show_groups = function(req, res, next) {
+    return models.Group.findAll().then(groups => {
+        res.render('group/groups',{title: 'Express', groups: groups });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
+
+
+
+//////////////
+
+
+exports.show_edit_group = function(req, res, next) {
+    return models.Group.findOne({
+        where : {
+            id : req.params.group_id
+        }
+    }).then(group => {
+        res.render('group/edit_group', { group : group });
+    });
+}
+
+exports.edit_group = function(req, res, next) {
+
+    return models.Group.update({
+        name: req.body.group_name,
+	//UserId: req.params.user_id
+    }, {
+        where: {
+            id: req.params.group_id
+        }
+    }).then(result => {
+        res.redirect('/dashboard/group/' + req.params.group_id);
+    })
+}
+
+
+exports.delete_group = function(req, res, next) {
+	return models.Group.destroy({
+		where: {
+			id: req.params.group_id
+		}
+	}).then(result => {
+		res.redirect('/dashboard/groups');
+	})
+}
+
+exports.delete_group_json = function(req, res, next) {
+	return models.Group.destroy({
+		where: {
+			id: req.params.group_id
+		}
+	}).then(result => {
+		res.send({ msg: "Success - dynamically deleted Group" });
+	})
+}
+
