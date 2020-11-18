@@ -2,10 +2,10 @@
 
 function deleteRemind(remindId) {
     $.ajax({
-        url: '/remind/' + remindId + '/delete-json', //route
+        url: '/dashboard/remind/' + remindId + '/delete-json', //route
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        data: JSON.stringify({leadId}),
+        data: JSON.stringify({remindId}),
         type: 'POST',
         success: ((res) => {
             // Replace follow button with unfollow.

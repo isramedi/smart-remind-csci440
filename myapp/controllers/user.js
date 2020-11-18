@@ -159,22 +159,22 @@ exports.edit_remind = function(req, res, next) {
 }
 
 
-//exports.delete_lead = function(req, res, next) {
-//	return models.Lead.destroy({
-//		where: {
-//			id: req.params.lead_id
-//		}
-//	}).then(result => {
-//		res.redirect('/leads');
-//	})
-//}
-//
-//exports.delete_lead_json = function(req, res, next) {
-//	return models.Lead.destroy({
-//		where: {
-//			id: req.params.lead_id
-//		}
-//	}).then(result => {
-//		res.send({ msg: "Success" });
-//	})
-//}
+exports.delete_remind = function(req, res, next) {
+	return models.Remind.destroy({
+		where: {
+			id: req.params.remind_id
+		}
+	}).then(result => {
+		res.redirect('/dashboard/reminds');
+	})
+}
+
+exports.delete_remind_json = function(req, res, next) {
+	return models.Remind.destroy({
+		where: {
+			id: req.params.remind_id
+		}
+	}).then(result => {
+		res.send({ msg: "Success - dynamically deleted remind" });
+	})
+}

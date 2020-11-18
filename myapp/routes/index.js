@@ -43,8 +43,8 @@ router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 router.get('/dashboard/remind/:remind_id', isLoggedIn, user.show_remind);
 router.get('/dashboard/remind/:remind_id/edit', isLoggedIn, user.show_edit_remind);
 router.post('/dashboard/remind/:remind_id/edit', isLoggedIn, user.edit_remind);
-//router.post('/dashboard/remind/:remind_id/delete', isLoggedIn, user.delete_remind);
-//router.post('/dashboard/remind/:remind_id/delete-json', isLoggedIn, user.delete_remind_json);
+router.post('/dashboard/remind/:remind_id/delete', isLoggedIn, user.delete_remind);
+router.post('/dashboard/remind/:remind_id/delete-json', isLoggedIn, user.delete_remind_json);
 
 
 
