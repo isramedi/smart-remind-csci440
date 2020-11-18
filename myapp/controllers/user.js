@@ -120,7 +120,8 @@ exports.submit_remind = function(req, res, next) {
         dateOfRemind: req.body.remind_dateOfRemind,
         type: req.body.remind_type,
         urgency: req.body.remind_urgency,
-	//UserId: req.params.user_id
+	UserId: req.user.id
+	//UserId: req.usueparams.user_id
     }).then(remind => {
         res.redirect('/dashboard/reminds');
     })
@@ -271,3 +272,17 @@ exports.delete_group_json = function(req, res, next) {
 	})
 }
 
+
+
+
+
+
+////// calendar view 
+
+
+
+
+exports.get_calendar = function(req, res, next) {
+    res.render('remind/calendar', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}

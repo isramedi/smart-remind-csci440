@@ -57,4 +57,13 @@ router.post('/dashboard/group/:group_id/edit', isLoggedIn, user.edit_group);
 router.post('/dashboard/group/:group_id/delete', isLoggedIn, user.delete_group);
 router.post('/dashboard/group/:group_id/delete-json', isLoggedIn, user.delete_group_json);
 
+
+
+//calendar
+router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);
+
+
+
+
+
 module.exports = router;

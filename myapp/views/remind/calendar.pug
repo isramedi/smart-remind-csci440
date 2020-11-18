@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Calendar")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1.mb-3 Calendar View
+            p.lead remind 
+            p.lead.mb-4 remind calendar
+            a(href="/dashboard/create_remind").lead.mb-4 create reminder
+            p.lead.mb-4 
+
+        include ../common/footer.pug
+        +footer()
+        script(src='/javascripts/leads.js')

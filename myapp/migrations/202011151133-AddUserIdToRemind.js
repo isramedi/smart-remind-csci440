@@ -6,7 +6,6 @@ const columnAndTypes = [{
 		return { 
 			type: Sequelize.UUID, 
 			defaultValue: false,
-
 			allowNull: false, 
 			foreignKey: 'id'
 		} 
