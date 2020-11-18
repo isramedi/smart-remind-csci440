@@ -24,17 +24,17 @@ module.exports = {
         allowNull: true,
         type: Sequelize.UUID
       },
-      UserId: {
-      	type: Sequelize.UUID,
-        references: {
-              model: {
-                  tableName: 'Users',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      },
+      //UserId: {
+      //	type: Sequelize.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Users',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: true
+      //},
     })
   },
   down: (queryInterface, Sequelize) => {

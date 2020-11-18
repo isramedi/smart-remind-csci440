@@ -119,8 +119,8 @@ exports.submit_remind = function(req, res, next) {
         title: req.body.remind_title,
         dateOfRemind: req.body.remind_dateOfRemind,
         type: req.body.remind_type,
-        urgency: req.body.remind_urgency
-		//users_id: req.params.user_id
+        urgency: req.body.remind_urgency,
+	//UserId: req.params.user_id
     }).then(remind => {
         res.redirect('/dashboard/reminds');
     })

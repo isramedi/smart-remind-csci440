@@ -24,25 +24,25 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         type: DataTypes.UUID
       },
-      UserId: {
-      	type: DataTypes.UUID,
-        references: {
-              model: {
-                  tableName: 'Users',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      }
+      //UserId: {
+      //	type: DataTypes.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Users',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: false
+      //}
   });
-  Group.associate = models => {
-    Group.hasMany(models.Remind, {
-      onDelete: "cascade"
-    });
-    Group.belongsTo(models.userGroupRelation, {
-      onDelete: "cascade"
-    });
-  };
+  //Group.associate = models => {
+  //  Group.hasMany(models.Remind, {
+  //    onDelete: "cascade"
+  //  });
+  //  Group.belongsTo(models.userGroupRelation, {
+  //    onDelete: "cascade"
+  //  });
+  //};
   return Group;
 }

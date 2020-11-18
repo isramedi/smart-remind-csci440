@@ -16,36 +16,36 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.DATE
       },
-      users_id: {
-      	type: DataTypes.UUID,
-        references: {
-              model: {
-                  tableName: 'Users',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      },
-      groups_id: {
-      	type: DataTypes.UUID,
-        references: {
-              model: {
-                  tableName: 'Groups',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      }
+      //users_id: {
+      //	type: DataTypes.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Users',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: false
+      //},
+      //groups_id: {
+      //	type: DataTypes.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Groups',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: false
+      //}
   });
-  userGroupRelation.associate = models => {
-    userGroupRelation.hasMany(models.Group, {
-      onDelete: "cascade"
-    });
-    userGroupRelation.belongsTo(models.User, {
-      onDelete: "cascade"
-    });
-  }
+  //userGroupRelation.associate = models => {
+  //  userGroupRelation.hasMany(models.Group, {
+  //    onDelete: "cascade"
+  //  });
+  //  userGroupRelation.belongsTo(models.User, {
+  //    onDelete: "cascade"
+  //  });
+  //}
   return userGroupRelation;
 }

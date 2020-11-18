@@ -35,16 +35,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     }
   });
-  User.associate = models => {
-    User.hasMany(models.Remind, {
-      onDelete: "cascade",
-      foreignKey: 'id',
-      sourceKey: 'id'
-    });
-    User.hasMany(models.userGroupRelation, {
-      onDelete: "cascade"
-    });
-  };
+  //User.associate = models => {
+  //  User.hasMany(models.Remind, {
+  //    onDelete: "cascade",
+  //    foreignKey: 'id',
+  //    sourceKey: 'id'
+  //  });
+  //  User.hasMany(models.userGroupRelation, {
+  //    onDelete: "cascade"
+  //  });
+  //};
 
   return User;
 }

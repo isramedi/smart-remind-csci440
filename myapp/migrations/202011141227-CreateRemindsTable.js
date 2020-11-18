@@ -45,28 +45,28 @@ module.exports = {
       	type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      UserId: {
-      	type: Sequelize.UUID,
-        references: {
-              model: {
-                  tableName: 'Users',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: true
-      },
-      GroupId: {
-      	type: Sequelize.UUID,
-        references: {
-              model: {
-                  tableName: 'Groups',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: true
-      },
+      //UserId: {
+      //	type: Sequelize.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Users',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: true
+      //},
+      //GroupId: {
+      //	type: Sequelize.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Groups',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: true
+      //},
     })
   },
   down: (queryInterface, Sequelize) => {

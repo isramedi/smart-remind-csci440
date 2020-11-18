@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('usersGroupsRelation', {
+    return queryInterface.createTable('userGroupRelations', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -16,31 +16,31 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      UserId: {
-      	type: Sequelize.UUID,
-        references: {
-              model: {
-                  tableName: 'Users',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      },
-      GroupId: {
-      	type: Sequelize.UUID,
-        references: {
-              model: {
-                  tableName: 'Groups',
-                  schema: 'public'
-              },
-              key: 'id'
-        },
-        allowNull: false
-      },
+      //UserId: {
+      //	type: Sequelize.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Users',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: true
+      //},
+      //GroupId: {
+      //	type: Sequelize.UUID,
+      //  references: {
+      //        model: {
+      //            tableName: 'Groups',
+      //            schema: 'smart_remind_schema'
+      //        },
+      //        key: 'id'
+      //  },
+      //  allowNull: true
+      //},
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('usersGroupsRelation');
+    return queryInterface.dropTable('userGroupRelations');
   }
 };
