@@ -5,7 +5,7 @@ html(lang='en')
   body
     header
       include ../common/navbar.pug
-      +navbar()
+      +navbar(user)
       .container
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
@@ -20,7 +20,7 @@ html(lang='en')
                   th(scope="col") Type
                   th(scope="col") Urgency
                   th(scope="col") Expired
-                  th(scope="col") <>user created
+                  //th(scope="col") <>user created
                   th(scope="col") <>group
                   th(scope="col") DETAILS
                   th(scope="col") Done/Delete
@@ -42,8 +42,8 @@ html(lang='en')
                       span #{remind.urgency}
                     td
                       span #{remind.expired}
-                    td
-                      span #{remind.UserId}
+                    //td
+                    //  span #{remind.UserId}
                     td
                       span #{remind.groups_id}
                     td
