@@ -207,20 +207,33 @@ exports.create_group = function(req, res, next) {
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
 
+   // return models.Group.update({
+   //     name: req.body.group_name,
+   //     //UserId: req.params.user_id
+   // }, {
+   //     where: {
+   //         id: req.params.group_id
+   //     }
+   // }).then(result => {
+   //     res.redirect('/dashboard/group/' + req.params.group_id);
+   // })
+
 exports.submit_group = function(req, res, next) {
 
-	//return models.userGroupRelation.create({	
-	//	user_id: req.user.id,
-	//	group_id: req.group.id
-
-
-	//	
-	//})
+    //return models.userGroupRelation.create({	
+    //	user_id: req.user.id,
+    //	group_id: req.group.id
+    //})
     return models.Group.create({
         name: req.body.group_name,
-	creator_id: req.user.id
+	creator_id: req.user.id,
     }).then(group => {
+	return models.userGroupRelation.create({
+        user_id: req.user.id,
+	//group_id: req.group.id,
+    }).then(userGroupRelation => {
         res.redirect('/dashboard/groups');
+    })
     })
 }
 
