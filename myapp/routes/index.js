@@ -53,13 +53,15 @@ router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 // GROUP log in only pages
 router.get('/dashboard/create_group', isLoggedIn, user.create_group);
 router.post('/dashboard/create_group', isLoggedIn, user.submit_group);
-router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 router.get('/dashboard/group/:group_id', isLoggedIn, user.show_group);
 router.get('/dashboard/group/:group_id/edit', isLoggedIn, user.show_edit_group);
 router.post('/dashboard/group/:group_id/edit', isLoggedIn, user.edit_group);
 router.post('/dashboard/group/:group_id/delete', isLoggedIn, user.delete_group);
 router.post('/dashboard/group/:group_id/delete-json', isLoggedIn, user.delete_group_json);
 
+
+router.get('/dashboard/admin_groups', isLoggedIn, user.admin_show_groups);
+//router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 
 
 //calendar

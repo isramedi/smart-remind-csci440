@@ -227,14 +227,20 @@ exports.show_group = function(req, res, next) {
 	});
 }
 
-exports.show_groups = function(req, res, next) {
+exports.admin_show_groups = function(req, res, next) {
     return models.Group.findAll().then(groups => {
-        res.render('group/groups',{title: 'Express', groups: groups });
+        res.render('group/admin_groups',{title: 'Express', groups: groups });
     })
     //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }
 
 
+//exports.show_groups = function(req, res, next) {
+//    return models.Group.findAll().then(groups => {
+//        res.render('group/groups',{title: 'Express', groups: groups });
+//    })
+//    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+//}
 
 //////////////
 
