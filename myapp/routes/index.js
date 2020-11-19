@@ -47,6 +47,8 @@ router.post('/dashboard/remind/:remind_id/delete', isLoggedIn, user.delete_remin
 router.post('/dashboard/remind/:remind_id/delete-json', isLoggedIn, user.delete_remind_json);
 
 
+router.get('/dashboard/user_reminds', isLoggedIn, user.show_user_reminds);
+
 // GROUP log in only pages
 router.get('/dashboard/create_group', isLoggedIn, user.create_group);
 router.post('/dashboard/create_group', isLoggedIn, user.submit_group);

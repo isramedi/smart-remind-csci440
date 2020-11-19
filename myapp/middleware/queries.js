@@ -13,3 +13,11 @@ exports.hasAuth = function(req, res, next) {
     else
         next(createError(404, "Not Found"));
 }
+
+exports.remindsFromUser = function(req, res, next) { 
+	if(req.remind.UserId == req.user.id) {
+	
+	
+	
+	}
+}
