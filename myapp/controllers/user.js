@@ -209,9 +209,16 @@ exports.create_group = function(req, res, next) {
 
 exports.submit_group = function(req, res, next) {
 
+	//return models.userGroupRelation.create({	
+	//	user_id: req.user.id,
+	//	group_id: req.group.id
+
+
+	//	
+	//})
     return models.Group.create({
         name: req.body.group_name,
-	//UserId: req.params.user_id
+	creator_id: req.user.id
     }).then(group => {
         res.redirect('/dashboard/groups');
     })
@@ -235,12 +242,16 @@ exports.admin_show_groups = function(req, res, next) {
 }
 
 
-//exports.show_groups = function(req, res, next) {
-//    return models.Group.findAll().then(groups => {
-//        res.render('group/groups',{title: 'Express', groups: groups });
-//    })
-//    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
-//}
+exports.show_groups = function(req, res, next) {
+    return models.Group.findAll({
+	    where : {
+		    creator_id : req.user.id
+	    }
+    }).then(groups => {
+        res.render('group/groups',{title: 'Express', groups: groups });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
 
 //////////////
 

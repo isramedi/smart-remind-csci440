@@ -14,7 +14,7 @@ html(lang='en')
               thead
                 tr
                   th(scope="col") Name
-                  th(scope="col") Users
+                  //th(scope="col") Users
                   th(scope="col") DETAILS
                   th(scope="col") Delete
                 tr
@@ -24,7 +24,7 @@ html(lang='en')
                     td
                       span #{group.name}
                     //td
-                    //  span #{group.users}
+                    //  span #{group.creator_id}
                     td
                       a(href="/dashboard/group/" + group.id) Details
                     td

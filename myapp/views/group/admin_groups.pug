@@ -23,8 +23,8 @@ html(lang='en')
                   tr(id=group.id)
                     td
                       span #{group.name}
-                    //td
-                    //  span #{group.users}
+                    td
+                      span #{group.creator_id}
                     td
                       a(href="/dashboard/group/" + group.id) Details
                     td
