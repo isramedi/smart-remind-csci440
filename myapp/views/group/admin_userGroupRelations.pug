@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("userGroupRelation")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1 userGroupRelation
+            table.table
+              thead
+                tr
+                  th(scope="col") user_id
+                  th(scope="col") group_id
+                  th(scope="col") DETAILS
+                  th(scope="col") Delete
+                tr
+              tbody
+                for userGroupRelation in userGroupRelations
+                  tr(id=userGroupRelation.id)
+                    td
+                      span #{userGroupRelation.user_id}
+                    td
+                      span #{userGroupRelation.group_id}
+                    td
+                      a(href="/dashboard/group/" + userGroupRelation.group_id) Details
+                    td
+                      button(onclick=`deleteGroup('${userGroupRelation.group_id}')`).btn.btn-primary Delete
+    include ../common/footer.pug
+    +footer()
+    script(src='/javascripts/groups.js')

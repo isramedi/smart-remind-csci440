@@ -1,0 +1,444 @@
+Statistical profiling result from isolate-0x4edca10-3347-v8.log, (1740 ticks, 1 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1584   91.0%          /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+     24    1.4%          /usr/lib/x86_64-linux-gnu/libc-2.28.so
+      1    0.1%          [vdso]
+      1    0.1%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    0.3%    4.6%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:599:37
+      5    0.3%    3.8%  LazyCompile: *resolve node:path:973:10
+      2    0.1%    1.5%  RegExp: (hi|ti)ves$
+      2    0.1%    1.5%  LazyCompile: *normalizeString node:path:52:25
+      1    0.1%    0.8%  RegExp: (?:^|\/)\.?\.$
+      1    0.1%    0.8%  LazyCompile: *realpathSync node:fs:1654:22
+
+ [C++]:
+   ticks  total  nonlib   name
+     32    1.8%   24.6%  __write
+     26    1.5%   20.0%  __lll_unlock_wake
+     12    0.7%    9.2%  _IO_fwrite
+     10    0.6%    7.7%  __pthread_cond_signal
+      5    0.3%    3.8%  __libc_malloc
+      4    0.2%    3.1%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      4    0.2%    3.1%  _IO_file_xsputn
+      3    0.2%    2.3%  operator new(unsigned long)
+      3    0.2%    2.3%  __pthread_cond_timedwait
+      3    0.2%    2.3%  __GI___pthread_mutex_lock
+      2    0.1%    1.5%  syscall
+      2    0.1%    1.5%  std::ostream::sentry::sentry(std::ostream&)
+      1    0.1%    0.8%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+      1    0.1%    0.8%  do_futex_wait.constprop.1
+      1    0.1%    0.8%  __pthread_mutex_unlock_usercnt
+      1    0.1%    0.8%  __munmap
+      1    0.1%    0.8%  __mprotect
+      1    0.1%    0.8%  __GI___pthread_mutex_unlock
+
+ [Summary]:
+   ticks  total  nonlib   name
+     17    1.0%   13.1%  JavaScript
+    112    6.4%   86.2%  C++
+     40    2.3%   30.8%  GC
+   1610   92.5%          Shared libraries
+      1    0.1%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     21   33.9%    1.2%  __write
+      8   12.9%    0.5%  _IO_fwrite
+      7   11.3%    0.4%  __lll_unlock_wake
+      4    6.5%    0.2%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      4    6.5%    0.2%  _IO_file_xsputn
+      3    4.8%    0.2%  operator new(unsigned long)
+      3    4.8%    0.2%  __libc_malloc
+      3    4.8%    0.2%  __GI___pthread_mutex_lock
+      2    3.2%    0.1%  syscall
+      2    3.2%    0.1%  __pthread_cond_signal
+      1    1.6%    0.1%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+      1    1.6%    0.1%  std::ostream::sentry::sentry(std::ostream&)
+      1    1.6%    0.1%  __pthread_mutex_unlock_usercnt
+      1    1.6%    0.1%  __mprotect
+      1    1.6%    0.1%  __GI___pthread_mutex_unlock
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1584   91.0%  /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+   1338   84.5%    /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+    289   21.6%      LazyCompile: ~readSync node:fs:555:18
+    289  100.0%        LazyCompile: ~tryReadSync node:fs:362:21
+    289  100.0%          LazyCompile: ~readFileSync node:fs:374:22
+    284   98.3%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      5    1.7%            LazyCompile: ~Module._extensions..json node:internal/modules/cjs/loader:1117:39
+    272   20.3%      LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:984:18
+    272  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+    272  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+    272  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+    164   12.3%      LazyCompile: ~read node:internal/modules/package_json_reader:16:14
+    164  100.0%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:264:21
+    156   95.1%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:446:24
+    156  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      4    2.4%          LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+      4  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      4    2.4%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:295:26
+      3   75.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1   25.0%            LazyCompile: ~shouldUseESMLoader node:internal/modules/run_main:23:28
+     90    6.7%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+     76   84.4%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:298:29
+      7    9.2%          Eval: ~<anonymous> node:crypto:1:1
+      7  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      6    7.9%          Eval: ~<anonymous> node:net:1:1
+      6  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      6    7.9%          Eval: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      6  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      5    6.6%          Eval: ~<anonymous> node:_http_client:1:1
+      5  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      4    5.3%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:411:29
+      4  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:20:36
+      4    5.3%          Eval: ~<anonymous> node:tls:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      4    5.3%          Eval: ~<anonymous> node:internal/modules/esm/loader:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      4    5.3%          Eval: ~<anonymous> node:fs:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      3    3.9%          Eval: ~<anonymous> node:tty:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      3    3.9%          Eval: ~<anonymous> node:internal/process/esm_loader:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      3    3.9%          Eval: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      3    3.9%          Eval: ~<anonymous> node:http:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      2    2.6%          LazyCompile: ~lazyLoadStreams node:fs:1998:25
+      2  100.0%            LazyCompile: ~get ReadStream node:fs:2105:17
+      2    2.6%          LazyCompile: ~initializeReport node:internal/bootstrap/pre_execution:177:26
+      2  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:20:36
+      2    2.6%          Eval: ~<anonymous> node:internal/modules/cjs/helpers:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      2    2.6%          Eval: ~<anonymous> node:internal/crypto/hkdf:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      2    2.6%          Eval: ~<anonymous> node:internal/child_process:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      2    2.6%          Eval: ~<anonymous> node:dgram:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      2    2.6%          Eval: ~<anonymous> node:_tls_wrap:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          LazyCompile: ~lazyRequire node:internal/crypto/util:60:21
+      1  100.0%            LazyCompile: ~get node:crypto:285:8
+      1    1.3%          LazyCompile: ~lazyLoadPromises node:stream:48:26
+      1  100.0%            LazyCompile: ~get node:stream:56:6
+      1    1.3%          LazyCompile: ~get node:fs:2160:8
+      1  100.0%            /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      1    1.3%          Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.3%          Eval: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          Eval: ~<anonymous> node:internal/crypto/random:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          Eval: ~<anonymous> node:internal/crypto/cipher:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          Eval: ~<anonymous> node:internal/bootstrap/pre_execution:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          Eval: ~<anonymous> node:child_process:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1    1.3%          Eval: ~<anonymous> node:assert:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+     14   15.6%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:214:25
+     14  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:31:26
+     14  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+     78    5.8%      LazyCompile: ~stat node:internal/modules/cjs/loader:132:14
+     47   60.3%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+     47  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+     47  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+     31   39.7%        LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+     20   64.5%          LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+     10   50.0%            LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+     10   50.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+     11   35.5%          LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+     11  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+     58    4.3%      /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+     10   17.2%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+     10  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+     10  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      7   12.1%        LazyCompile: ~_apply_rules /var/www/smart-remind-csci440/myapp/node_modules/inflection/lib/inflection.js:590:29
+      5   71.4%          LazyCompile: ~singularize /var/www/smart-remind-csci440/myapp/node_modules/inflection/lib/inflection.js:691:28
+      5  100.0%            LazyCompile: ~singularize /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/utils.js:107:21
+      2   28.6%          LazyCompile: ~pluralize /var/www/smart-remind-csci440/myapp/node_modules/inflection/lib/inflection.js:669:26
+      2  100.0%            LazyCompile: ~pluralize /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/utils.js:112:19
+      5    8.6%        LazyCompile: ~stat node:internal/modules/cjs/loader:132:14
+      3   60.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      3  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      2   40.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      2  100.0%            LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+      4    6.9%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:264:21
+      2   50.0%          LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+      2  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      2   50.0%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:295:26
+      2  100.0%            LazyCompile: ~trySelf node:internal/modules/cjs/loader:415:17
+      4    6.9%        LazyCompile: ~FastBuffer node:internal/buffer:952:1
+      4  100.0%          LazyCompile: ~createUnsafeBuffer node:internal/buffer:1048:28
+      3   75.0%            LazyCompile: ~allocate node:buffer:394:18
+      1   25.0%            LazyCompile: ~createPool node:buffer:142:20
+      3    5.2%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:150:16
+      3  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:253:14
+      3  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:239:15
+      3    5.2%        LazyCompile: ~<anonymous> node:internal/per_context/primordials:23:10
+      1   33.3%          LazyCompile: ~resolveExports node:internal/modules/cjs/loader:446:24
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1   33.3%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:295:26
+      1  100.0%            LazyCompile: ~trySelf node:internal/modules/cjs/loader:415:17
+      1   33.3%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:8:25
+      2    3.4%        LazyCompile: ~getValidStdio node:internal/child_process:930:23
+      2  100.0%          LazyCompile: ~spawnSync node:child_process:578:19
+      2  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/detect-libc/lib/detect-libc.js:1:1
+      2    3.4%        LazyCompile: ~Module node:internal/modules/cjs/loader:150:16
+      2  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      2  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      2    3.4%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/validator/lib/isAlpha.js:1:1
+      2  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      2  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    1.7%        LazyCompile: ~supportsColor /var/www/smart-remind-csci440/myapp/node_modules/supports-color/index.js:35:23
+      1  100.0%          LazyCompile: ~getSupportLevel /var/www/smart-remind-csci440/myapp/node_modules/supports-color/index.js:122:25
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/supports-color/index.js:1:1
+      1    1.7%        LazyCompile: ~splitRoot node:fs:1617:33
+      1  100.0%          LazyCompile: *realpathSync node:fs:1654:22
+      1  100.0%            LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      1    1.7%        LazyCompile: ~pathtoRegexp /var/www/smart-remind-csci440/myapp/node_modules/path-to-regexp/index.js:28:22
+      1  100.0%          LazyCompile: ~Layer /var/www/smart-remind-csci440/myapp/node_modules/express/lib/router/layer.js:33:15
+      1  100.0%            LazyCompile: ~route /var/www/smart-remind-csci440/myapp/node_modules/express/lib/router/index.js:491:29
+      1    1.7%        LazyCompile: ~parse node:url:158:37
+      1  100.0%          LazyCompile: ~urlParse node:url:150:18
+      1  100.0%            LazyCompile: ~validate_config /var/www/smart-remind-csci440/myapp/node_modules/node-pre-gyp/lib/util/versioning.js:195:25
+      1    1.7%        LazyCompile: ~parse /var/www/smart-remind-csci440/myapp/node_modules/semver/semver.js:245:16
+      1  100.0%          LazyCompile: ~module.exports.evaluate /var/www/smart-remind-csci440/myapp/node_modules/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%            LazyCompile: ~exports.find /var/www/smart-remind-csci440/myapp/node_modules/node-pre-gyp/lib/pre-binding.js:16:24
+      1    1.7%        LazyCompile: ~merge /var/www/smart-remind-csci440/myapp/node_modules/merge-descriptors/index.js:34:15
+      1  100.0%          LazyCompile: ~createApplication /var/www/smart-remind-csci440/myapp/node_modules/express/lib/express.js:37:27
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/app.js:1:1
+      1    1.7%        LazyCompile: ~getExportsForCircularRequire node:internal/modules/cjs/loader:700:38
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      1    1.7%        LazyCompile: ~createToken /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/semver/internal/re.js:11:21
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/semver/internal/re.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    1.7%        LazyCompile: ~addZone /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/moment-timezone.js:407:19
+      1  100.0%          LazyCompile: ~loadData /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/moment-timezone.js:528:20
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/index.js:1:1
+      1    1.7%        LazyCompile: ~Mime.lookup /var/www/smart-remind-csci440/myapp/node_modules/mime/mime.js:69:33
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/mime/mime.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/signal-exit/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/node-pre-gyp/lib/util/napi.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/_isMasked.js:4:27
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/_isMasked.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/iconv-lite/lib/streams.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/express/lib/application.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    1.7%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/depd/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+     38    2.8%      LazyCompile: ~spawnSync node:internal/child_process:1052:19
+     38  100.0%        LazyCompile: ~spawnSync node:child_process:578:19
+     38  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/detect-libc/lib/detect-libc.js:1:1
+     38  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+     27    2.0%      LazyCompile: ~readPackage node:internal/modules/cjs/loader:264:21
+     25   92.6%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:446:24
+     25  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+     25  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      2    7.4%        LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:295:26
+      1   50.0%          LazyCompile: ~trySelf node:internal/modules/cjs/loader:415:17
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      1   50.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+     14    1.0%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/mysql2/lib/constants/errors.js:1:1
+     14  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+     14  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+     14  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+
+     32    1.8%  __write
+     21   65.6%    /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      4   19.0%      /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      1   25.0%        LazyCompile: ~merge /var/www/smart-remind-csci440/myapp/node_modules/merge-descriptors/index.js:34:15
+      1  100.0%          LazyCompile: ~createApplication /var/www/smart-remind-csci440/myapp/node_modules/express/lib/express.js:37:27
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/app.js:1:1
+      1   25.0%        LazyCompile: ~baseIsNative /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:3409:26
+      1  100.0%          LazyCompile: ~getNative /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:5994:23
+      1  100.0%            Eval: ~runInContext /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1406:44
+      1   25.0%        LazyCompile: ~_apply_rules /var/www/smart-remind-csci440/myapp/node_modules/inflection/lib/inflection.js:590:29
+      1  100.0%          LazyCompile: ~singularize /var/www/smart-remind-csci440/myapp/node_modules/inflection/lib/inflection.js:691:28
+      1  100.0%            LazyCompile: ~singularize /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/utils.js:107:21
+      1   25.0%        Eval: ~<anonymous> node:internal/crypto/keys:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:298:29
+      2    9.5%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1475:35
+      2  100.0%        Eval: ~runInContext /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1406:44
+      2  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:9:11
+      2  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1:1
+      1    4.8%      LazyCompile: ~setup /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/debug/src/common.js:7:15
+      1  100.0%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/debug/src/node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    4.8%      LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:371:30
+      1  100.0%        LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:371:30
+      1  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:371:30
+      1  100.0%            LazyCompile: ~packageExportsResolve node:internal/modules/esm/resolve:467:31
+      1    4.8%      LazyCompile: ~proto.<computed> /var/www/smart-remind-csci440/myapp/node_modules/express/lib/router/index.js:508:27
+      1  100.0%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/routes/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    4.8%      LazyCompile: ~onwrite node:internal/streams/writable:424:17
+      1  100.0%        LazyCompile: ~afterWriteDispatched node:internal/stream_base_commons:157:30
+      1  100.0%          LazyCompile: ~writeGeneric node:internal/stream_base_commons:149:22
+      1  100.0%            LazyCompile: ~Socket._writeGeneric node:net:738:42
+      1    4.8%      LazyCompile: ~keys /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:13332:18
+      1  100.0%        LazyCompile: ~mixin /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:15730:19
+      1  100.0%          Eval: ~runInContext /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1406:44
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:9:11
+      1    4.8%      LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:906:31
+      1  100.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:446:24
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      1    4.8%      LazyCompile: ~construct /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/utils/class-to-invokable.js:16:14
+      1  100.0%        LazyCompile: ~extend /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/data-types.js:43:16
+      1  100.0%          LazyCompile: ~normalizeDataType /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/sequelize.js:1187:20
+      1  100.0%            LazyCompile: ~normalizeAttribute /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/sequelize.js:1207:21
+      1    4.8%      LazyCompile: ~_injectAttributes /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/associations/has-many.js:114:20
+      1  100.0%        LazyCompile: ~hasMany /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/associations/mixin.js:16:10
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/models/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    4.8%      LazyCompile: ~MysqlDialect /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/dialects/mysql/index.js:12:14
+      1  100.0%        LazyCompile: ~Sequelize /var/www/smart-remind-csci440/myapp/node_modules/sequelize/lib/sequelize.js:172:14
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/models/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    4.8%      LazyCompile: ~Module node:internal/modules/cjs/loader:150:16
+      1  100.0%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      1  100.0%          LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:65:31
+      1  100.0%            Eval: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    4.8%      LazyCompile: ~Gauge /var/www/smart-remind-csci440/myapp/node_modules/gauge/index.js:19:16
+      1  100.0%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/npmlog/log.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    4.8%      LazyCompile: ~<anonymous> /var/www/smart-remind-csci440/myapp/models/index.js:23:12
+      1  100.0%        /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/models/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    4.8%      Eval: ~<anonymous> node:internal/crypto/util:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:265:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:298:29
+      1  100.0%            Eval: ~<anonymous> node:internal/crypto/random:1:1
+      1    4.8%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/validator/lib/isSemVer.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      1    4.8%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:16891:28
+      1  100.0%        Eval: ~runInContext /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1406:44
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:9:11
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1:1
+
+     26    1.5%  __lll_unlock_wake
+      7   26.9%    /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      2   28.6%      LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      2  100.0%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      2  100.0%          LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      2  100.0%            LazyCompile: ~require node:internal/modules/cjs/helpers:87:31
+      1   14.3%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      1  100.0%        LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      1  100.0%          LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+      1  100.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1   14.3%      LazyCompile: ~set /var/www/smart-remind-csci440/myapp/node_modules/express/lib/application.js:352:23
+      1  100.0%        LazyCompile: ~defaultConfiguration /var/www/smart-remind-csci440/myapp/node_modules/express/lib/application.js:70:57
+      1  100.0%          LazyCompile: ~init /var/www/smart-remind-csci440/myapp/node_modules/express/lib/application.js:57:25
+      1  100.0%            LazyCompile: ~createApplication /var/www/smart-remind-csci440/myapp/node_modules/express/lib/express.js:37:27
+      1   14.3%      LazyCompile: ~resolve node:path:973:10
+      1  100.0%        LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      1   14.3%      LazyCompile: ~realpathSync node:fs:1654:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      1  100.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      1  100.0%            LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+      1   14.3%      LazyCompile: ~getOwn node:internal/bootstrap/loaders:150:16
+      1  100.0%        LazyCompile: ~syncExports node:internal/bootstrap/loaders:253:14
+      1  100.0%          LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:214:25
+      1  100.0%            LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:31:26
+
+     24    1.4%  /usr/lib/x86_64-linux-gnu/libc-2.28.so
+     17   70.8%    /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      3   17.6%      /home/isradeb/.nvm/versions/node/v15.0.1/bin/node
+      1   33.3%        LazyCompile: ~shouldUseNative /var/www/smart-remind-csci440/myapp/node_modules/object-assign/index.js:21:25
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/object-assign/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1   33.3%        LazyCompile: ~addZone /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/moment-timezone.js:407:19
+      1  100.0%          LazyCompile: ~loadData /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/moment-timezone.js:528:20
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/moment-timezone/index.js:1:1
+      1   33.3%        LazyCompile: ~FastBuffer node:internal/buffer:952:1
+      1  100.0%          LazyCompile: ~createUnsafeBuffer node:internal/buffer:1048:28
+      1  100.0%            LazyCompile: ~allocate node:buffer:394:18
+      2   11.8%      LazyCompile: ~realpathSync node:fs:1654:22
+      2  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      2  100.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      2  100.0%            LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+      2   11.8%      LazyCompile: *realpathSync node:fs:1654:22
+      2  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      2  100.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      2  100.0%            LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+      1    5.9%      LazyCompile: ~session /var/www/smart-remind-csci440/myapp/node_modules/express-session/index.js:87:17
+      1  100.0%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/app.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1    5.9%      LazyCompile: ~nextPart node:fs:1650:31
+      1  100.0%        LazyCompile: ~realpathSync node:fs:1654:22
+      1  100.0%          LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      1  100.0%            LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      1    5.9%      LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      1  100.0%        LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      1  100.0%          LazyCompile: ~require node:internal/modules/cjs/helpers:87:31
+      1  100.0%            Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/express-session/session/cookie.js:1:1
+      1    5.9%      LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:468:28
+      1  100.0%        LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:816:35
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      1    5.9%      LazyCompile: ~Module._extensions..json node:internal/modules/cjs/loader:1117:39
+      1  100.0%        LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:724:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:964:36
+      1    5.9%      LazyCompile: *normalizeString node:path:52:25
+      1  100.0%        LazyCompile: ~resolve node:path:973:10
+      1  100.0%          LazyCompile: ~readPackage node:internal/modules/cjs/loader:264:21
+      1  100.0%            LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:295:26
+      1    5.9%      Eval: ~runInContext /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1406:44
+      1  100.0%        Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:9:11
+      1  100.0%          Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/lodash/lodash.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1    5.9%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/validator/lib/isSlug.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      1    5.9%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/sequelize/node_modules/validator/lib/isIP.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      1    5.9%      Eval: ~<anonymous> /var/www/smart-remind-csci440/myapp/node_modules/mysql2/lib/constants/errors.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1037:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1092:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:936:33
+      1    4.2%    LazyCompile: *realpathSync node:fs:1654:22
+      1  100.0%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:367:20
+      1  100.0%        LazyCompile: ~tryFile node:internal/modules/cjs/loader:358:17
+      1  100.0%          LazyCompile: ~tryExtensions node:internal/modules/cjs/loader:374:23
+      1  100.0%            LazyCompile: ~tryPackage node:internal/modules/cjs/loader:312:20
+
