@@ -226,15 +226,21 @@ exports.submit_group = function(req, res, next) {
     //})
     return models.Group.create({
         name: req.body.group_name,
-	creator_id: req.user.id,
+        creator_id: req.user.id,
     }).then(groups => {
 	return models.userGroupRelation.create({
         	user_id: req.user.id,
-		//group_id: req.group.id,
+        	//group_id: req.group.id,
     }).then(userGroupRelation => {
         res.redirect('/dashboard/groups');
     })
     })
+    //return models.Group.create({
+    //    name: req.body.group_name,
+    //    creator_id: req.user.id,
+    //}).then(groups => {
+    //    res.redirect('/dashboard/groups');
+    //})
 }
 
 exports.show_group = function(req, res, next) {

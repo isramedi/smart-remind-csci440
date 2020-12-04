@@ -20,16 +20,59 @@ html(lang='en')
                 .input-group-append
 
               .input-group.mb-3
-                input(name="remind_dateOfRemind", type="text", placeholder="Enter Date of Remind").form-control
+                input(name="remind_dateOfRemind", type="datetime-local", placeholder="Enter Date of Remind").form-control
                 .input-group-append
 
-              .input-group.mb-3
-                input(name="remind_type", type="text", placeholder="Enter Type").form-control
-                .input-group-append
+              //label.btn-group.mb-3
+              //  input(name="remind_type", type="button", placeholder="Enter Type", id="regular", value="regular").form-control.btn-secondary
+              //  input(name="remind_type", type="button", placeholder="Enter Type", id="smart", value="smart").form-control.btn-secondary
+              //  .input-group-append
 
-              .input-group.mb-3
-                input(name="remind_urgency", type="text", placeholder="Enter Urgency").form-control
-                .input-group-append
+              mixin input1(textinput)
+                  label.btn.btn-secondary
+                      input#option1(type='radio' name='remind_type' autocomplete='off' value=textinput)
+                      // span.label= textinput
+                      // span= textinput
+                      | #{textinput}
+              
+              mixin btn-toggle-group1(textinput)
+                  .btn-group(data-toggle='button')
+                      block
+              
+              + btn-toggle-group1
+                  + input1('regular')
+                  + input1('smart')
+
+              .input-group-append
+
+              //.btn-group.mb-3
+              //  input(name="remind_urgency", type="button", placeholder="Enter Urgency", id="none", value="none").form-control.btn-secondary
+              //  input(name="remind_urgency", type="button", placeholder="Enter Urgency", id="low", value="low").form-control.btn-secondary
+              //  input(name="remind_urgency", type="button", placeholder="Enter Urgency", id="medium", value="medium").form-control.btn-secondary
+              //  input(name="remind_urgency", type="button", placeholder="Enter Urgency", id="high", value="high").form-control.btn-secondary
+              //  input(name="remind_urgency", type="button", placeholder="Enter Urgency", id="urgent", value="urgent").form-control.btn-secondary
+              //  .input-group-append
+
+
+              mixin input(textinput)
+                  label.btn.btn-secondary
+                      input#option1(type='radio' name='remind_urgency' autocomplete='off' value=textinput)
+                      // span.label= textinput
+                      // span= textinput
+                      | #{textinput}
+              
+              mixin btn-toggle-group(textinput)
+                  .btn-group(data-toggle='button')
+                      block
+              
+              + btn-toggle-group
+                  + input('none')
+                  + input('low')
+                  + input('medium')
+                  + input('high')
+                  + input('urgent')
+
+
 
               .input-group-append
                 button(type="submit").btn.btn-primary Create Remind
@@ -38,6 +81,7 @@ html(lang='en')
             //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control
             //    .input-group-append
             //      button(type="submit").btn.btn-primary Get Started
+
 
         include ../common/footer.pug
         +footer()

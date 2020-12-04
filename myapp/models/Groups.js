@@ -40,8 +40,13 @@ module.exports = (sequelize, DataTypes) => {
     Group.hasMany(models.Remind, {
       onDelete: "cascade"
     });
-    Group.belongsTo(models.userGroupRelation, {
-      onDelete: "cascade"
+  //  Group.belongsTo(models.userGroupRelation, {
+  //    //foreignKey: "id",
+  //    onDelete: "cascade",
+  //  });
+    Group.hasMany(models.userGroupRelation, {
+      //foreignKey: "id",
+      onDelete: "cascade",
     });
   };
   return Group;
