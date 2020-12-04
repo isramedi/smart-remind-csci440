@@ -346,6 +346,15 @@ exports.delete_group_json = function(req, res, next) {
 }
 
 
+exports.delete_userGroupRelation_json = function(req, res, next) {
+	return models.userGroupRelation.destroy({
+		where: {
+			id: req.params.userGroupRelation_id
+		}
+	}).then(result => {
+		res.send({ msg: "Success - dynamically deleted userGroupRelation" });
+	})
+}
 
 
 

@@ -62,7 +62,12 @@ router.post('/dashboard/group/:group_id/delete-json', isLoggedIn, user.delete_gr
 
 router.get('/dashboard/admin_groups', isLoggedIn, user.admin_show_groups);
 router.get('/dashboard/groups', isLoggedIn, user.show_groups);
+
+
+
+//userGroupRelations
 router.get('/dashboard/admin_userGroupRelations', isLoggedIn, user.admin_show_userGroupRelations);
+router.post('/dashboard/userGroupRelation/:userGroupRelations_id/delete-json', isLoggedIn, user.delete_userGroupRelation_json);
 
 //calendar
 router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);

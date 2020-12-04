@@ -16,7 +16,8 @@ html(lang='en')
                   th(scope="col") userGroup_id
                   th(scope="col") user_id
                   th(scope="col") group_id
-                  th(scope="col") DETAILS
+                  th(scope="col") USER DETAILS 
+                  th(scope="col") GROUP DETAILS 
                   th(scope="col") Delete
                 tr
               tbody
@@ -29,9 +30,11 @@ html(lang='en')
                     td
                       span #{userGroupRelation.group_id}
                     td
-                      a(href="/dashboard/group/" + userGroupRelation.group_id) Details
+                      a(href="/dashboard/group/" + userGroupRelation.user_id) Details-USER
                     td
-                      button(onclick=`deleteGroup('${userGroupRelation.group_id}')`).btn.btn-primary Delete
+                      a(href="/dashboard/group/" + userGroupRelation.group_id) Details-GROUP
+                    td
+                      button(onclick=`deleteUserGroupRelation('${userGroupRelation.id}')`).btn.btn-primary Delete
     include ../common/footer.pug
     +footer()
-    script(src='/javascripts/groups.js')
+    script(src='/javascripts/userGroupRelations.js')
