@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   });
   //userGroupRelation.associate = models => {
-  //  userGroupRelation.hasMany(models.Group, {
+  //  userGroupRelation.belongsTo(models.Group, {
   //    onDelete: "cascade"
   //  });
   //  userGroupRelation.belongsTo(models.User, {

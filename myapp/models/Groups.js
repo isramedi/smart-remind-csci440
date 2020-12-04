@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
   //    onDelete: "cascade",
   //  });
     Group.hasMany(models.userGroupRelation, {
-      //foreignKey: "id",
+      foreignKey: "id",
       onDelete: "cascade",
     });
   };

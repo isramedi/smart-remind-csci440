@@ -13,6 +13,7 @@ html(lang='en')
             table.table
               thead
                 tr
+                  th(scope="col") userGroup_id
                   th(scope="col") user_id
                   th(scope="col") group_id
                   th(scope="col") DETAILS
@@ -21,6 +22,8 @@ html(lang='en')
               tbody
                 for userGroupRelation in userGroupRelations
                   tr(id=userGroupRelation.id)
+                    td
+                      span #{userGroupRelation.id}
                     td
                       span #{userGroupRelation.user_id}
                     td
