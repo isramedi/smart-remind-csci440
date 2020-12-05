@@ -450,3 +450,12 @@ exports.admin_show_users = function(req, res, next) {
     //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }
 
+// send email functionaliites
+exports.admin_send_email = function() {
+	return next({
+
+	}).then(result => {
+		res.send({ msg: "Success - sent email" });
+	})
+}
+
