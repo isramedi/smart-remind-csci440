@@ -10,7 +10,8 @@ mixin navbar(user)
         //  a.nav-link(href="/leads") Leads
     .navbar-right
       if user
-        span.navbar-text Hello #{user.email}!
+        a.nav-link(href="/dashboard/user/" + user.id) 
+          span.navbar-text Hello #{user.email}!
     .navbar-right
       ul.navbar-nav.mr-auto
         li.nav-item

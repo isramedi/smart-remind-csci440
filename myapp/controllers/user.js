@@ -374,8 +374,79 @@ exports.get_calendar = function(req, res, next) {
 
 
 
+///// users
+
+exports.show_user = function(req, res, next) {
+	return models.User.findOne({
+		where : {
+			id : req.params.user_id
+		}
+	}).then(user => {
+		res.render('user/user', { user : user });
+	});
+}
+
+exports.show_edit_user = function(req, res, next) {
+    return models.User.findOne({
+        where : {
+            id : req.params.user_id
+        }
+    }).then(user => {
+        res.render('user/edit_user', { user : user });
+    });
+}
+
+exports.edit_user = function(req, res, next) {
+
+    return models.User.update({
+        username: req.body.user_username,
+        firstname: req.body.user_firstname,
+        lastname: req.body.user_lastname,
+        email: req.body.user_email,
+	//UserId: req.params.user_id
+    }, {
+        where: {
+            id: req.params.user_id
+        }
+    }).then(result => {
+        res.redirect('/dashboard/user/' + req.params.user_id);
+    })
+}
+
+
+exports.delete_user = function(req, res, next) {
+	return models.User.destroy({
+		where: {
+			id: req.params.user_id
+		}
+	}).then(result => {
+		res.redirect('/dashboard/admin_users');
+	})
+}
+
+exports.delete_user_json = function(req, res, next) {
+	return models.User.destroy({
+		where: {
+			id: req.params.user_id
+		}
+	}).then(result => {
+		res.send({ msg: "Success - dynamically deleted user" });
+	})
+}
+
+
+
+
 //////// admin view
 exports.get_admin = function(req, res, next) {
     res.render('dashboard/admin', {title: 'Express' , user: req.user });
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
+
+exports.admin_show_users = function(req, res, next) {
+    return models.User.findAll().then(users => {
+        res.render('user/admin_users',{title: 'Express', users: users });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
+

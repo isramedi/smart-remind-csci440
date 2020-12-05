@@ -64,6 +64,14 @@ router.get('/dashboard/admin_groups', isLoggedIn, user.admin_show_groups);
 router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 
 
+// users
+router.get('/dashboard/user/:user_id', isLoggedIn, user.show_user);
+router.get('/dashboard/user/:user_id/edit', isLoggedIn, user.show_edit_user);
+router.post('/dashboard/user/:user_id/edit', isLoggedIn, user.edit_user);
+router.post('/dashboard/user/:user_id/delete', isLoggedIn, user.delete_user);
+router.post('/dashboard/user/:user_id/delete-json', isLoggedIn, user.delete_user_json);
+
+
 
 //userGroupRelations
 router.get('/dashboard/admin_userGroupRelations', isLoggedIn, user.admin_show_userGroupRelations);
@@ -77,7 +85,7 @@ router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);
 
 // admin controlls
 router.get('/dashboard/admin', isLoggedIn, user.get_admin);
-
+router.get('/dashboard/admin_users', isLoggedIn, user.admin_show_users);
 
 
 

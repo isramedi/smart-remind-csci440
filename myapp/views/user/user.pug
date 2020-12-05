@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Users")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1 Users
+            table.table
+              thead
+                tr
+                  th(scope="col") id
+                  th(scope="col") createdAt
+                  th(scope="col") updatedAt
+                  th(scope="col") username
+                  th(scope="col") firstname
+                  th(scope="col") lastname
+                  //th(scope="col") password
+                  th(scope="col") email
+                  th(scope="col") is_admin
+                  th(scope="col") DETAILS
+                  th(scope="col") Done/Delete
+                tr
+              tbody
+                  tr(id=user.id)
+                    td
+                      span #{user.id}
+                    td
+                      span #{user.createdAt}
+                    td
+                      span #{user.updatedAt}
+                    td
+                      span #{user.username}
+                    td
+                      span #{user.firstname}
+                    td
+                      span #{user.lastname}
+                    //td
+                    //  span #{user.password}
+                    td
+                      span #{user.email}
+                    td
+                      span #{user.is_admin}
+                    td
+                      a(href="/dashboard/user/" + user.id + "/edit") Edit
+                    td
+                      form(action="/dashboard/user/" + user.id + "/delete", method="POST")
+                        button(type="submit").btn.btn-primary Delete
+    include ../common/footer.pug
+    +footer()
+    script(src='/javascripts/users.js')
