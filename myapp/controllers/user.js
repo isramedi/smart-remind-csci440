@@ -368,3 +368,14 @@ exports.get_calendar = function(req, res, next) {
     res.render('remind/calendar', {title: 'Express' , user: req.user });
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
+
+
+
+
+
+
+//////// admin view
+exports.get_admin = function(req, res, next) {
+    res.render('dashboard/admin', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}

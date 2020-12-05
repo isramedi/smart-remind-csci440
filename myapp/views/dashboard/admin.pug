@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug
+  +head("Welcome")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(user)
+      .container
+        .row.align-items-center
+          .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+            h1.mb-3 Welcome
+            p.lead Today's Reminds
+            p.lead.mb-4 This week's reminds
+            a(href="/dashboard/create_remind").lead.mb-4 create reminder
+            p.lead.mb-4 
+            a(href="/dashboard/reminds").lead.mb-4 Show All Reminds (For this user)
+            p.lead.mb-4 
+            a(href="/dashboard/create_group").lead.mb-4 create group
+            p.lead.mb-4  
+            a(href="/dashboard/groups").lead.mb-4 Show All Groups (For this user)
+            p.lead.mb-4 
+            a(href="/dashboard/calendar").lead.mb-4 Show Calendar View (For this user)
+            p.lead.mb-4 
+	    
+
+            p.lead.mb-4  
+            a(href="/dashboard/admin_reminds").lead.mb-4 Show All Reminds (ADMIN)
+            p.lead.mb-4 
+            a(href="/dashboard/admin_groups").lead.mb-4 Show All Groups (Admin)
+            p.lead.mb-4 
+            a(href="/dashboard/admin_userGroupRelations").lead.mb-4 Show All userGroupRelation (Admin)
+            h1 test
+            table.table
+              thead
+                tr
+                  th(scope="col") Remind
+                  th(scope="col") Date
+                  th(scope="col") Done/Delete
+                tr
+              tbody
+                  tr
+                    td
+                      th(scope="col") link
+                    td
+                      a(href="/dashboard/reminder") Details
+                    td
+                      button(onclick=``).btn.btn-primary Delete
+                  tr
+                    td
+                      th(scope="col") link
+                    td
+                      a(href="/dashboard/reminder") Details
+                    td
+                      button(onclick=``).btn.btn-primary Delete
+
+            //form(action="/", method="POST")
+            //  .input-group.mb-3
+            //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+            //    .input-group-append
+            //      button(type="submit").btn.btn-primary Get Started
+
+        include ../common/footer.pug
+        +footer()
+        script(src='/javascripts/leads.js')

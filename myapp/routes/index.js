@@ -67,10 +67,18 @@ router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 
 //userGroupRelations
 router.get('/dashboard/admin_userGroupRelations', isLoggedIn, user.admin_show_userGroupRelations);
-router.post('/dashboard/userGroupRelation/:userGroupRelations_id/delete-json', isLoggedIn, user.delete_userGroupRelation_json);
+router.post('/dashboard/admin_userGroupRelation/:userGroupRelations_id/delete-json', isLoggedIn, user.delete_userGroupRelation_json);
 
 //calendar
 router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);
+
+
+
+
+// admin controlls
+router.get('/dashboard/admin', isLoggedIn, user.get_admin);
+
+
 
 
 
