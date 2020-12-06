@@ -3,6 +3,7 @@ var router = express.Router();
 
 let landing = require('../controllers/landing');
 let user = require('../controllers/user');
+let service = require('../controllers/service');
 
 /* User accounts routes */
 
@@ -86,7 +87,9 @@ router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);
 // admin controlls
 router.get('/dashboard/admin', isLoggedIn, user.get_admin);
 router.get('/dashboard/admin_users', isLoggedIn, user.admin_show_users);
-router.post('/email', user.admin_send_email);
+
+router.get('/email', isLoggedIn, service.admin_get_email);
+router.post('/email', isLoggedIn, service.admin_send_email);
 
 
 

@@ -11,6 +11,9 @@ const {validateCreateUserFields} = require('../validators/signup');
 // importing validator
 //const { validateUser } = require('../validators/signup');
 
+// adding email functionality nodemailer
+const nodemailer = require('nodemailer');
+
 
 exports.show_login = function(req, res, next) {
 	res.render('user/login', { formData: {}, errors: {} });
@@ -129,6 +132,7 @@ exports.submit_remind = function(req, res, next) {
     return models.Remind.create({
         category: req.body.remind_category,
         title: req.body.remind_title,
+	notes: req.body.remind_notes,
         dateOfRemind: req.body.remind_dateOfRemind,
         type: req.body.remind_type,
         urgency: req.body.remind_urgency,
@@ -449,13 +453,3 @@ exports.admin_show_users = function(req, res, next) {
     })
     //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }
-
-// send email functionaliites
-exports.admin_send_email = function() {
-	return next({
-
-	}).then(result => {
-		res.send({ msg: "Success - sent email" });
-	})
-}
-
