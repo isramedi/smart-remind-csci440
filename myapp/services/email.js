@@ -49,8 +49,9 @@ class Email {
   /**
    * @method send
    */
-  static async send(msg, to_email, title, error = false) {
+  static async send(to_email, title, msg, error = false) {
     console.log(`Sending email ${error ? "error alert" : "alert"}...`);
+	  console.log(to_email);
 
     transporter.sendMail({
       to: to_email,

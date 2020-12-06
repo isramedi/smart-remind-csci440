@@ -15,6 +15,11 @@ const {validateCreateUserFields} = require('../validators/signup');
 const nodemailer = require('nodemailer');
 
 
+//import email script
+const Email = require("../services/email");
+const spawn = require("child_process").spawn;
+const Schedule = require("../services/schedule.js");
+
 exports.show_login = function(req, res, next) {
 	res.render('user/login', { formData: {}, errors: {} });
 }
@@ -128,6 +133,29 @@ exports.show_reminds = function(req, res, next) {
 
 
 exports.submit_remind = function(req, res, next) {
+
+        var category = req.body.remind_category;
+        var title = req.body.remind_title;
+	var notes = req.body.remind_notes;
+        var dateOfRemind = req.body.remind_dateOfRemind;
+        var type = req.body.remind_type;
+        var urgency = req.body.remind_urgency;
+	var UserId = req.user.id;
+	var email = req.user.email;
+
+    Email.send(email, "Remind created! " + title,  
+   	"This is your remind: " + title + ", " + category + ", " + notes + ", " + dateOfRemind + ", " + type + ", " + urgency
+    );
+
+	console.log("RUNNING SECHDUEL REMINDER FUNCION");
+    //Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email);
+	//spawn("node -e Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)");
+	//spawn("node -e 'require("../services/schedule").reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)'");
+	//spawn("node -e 'require('../services/schedule').reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)'");
+	//spawn("node -e Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)");
+	//spawn("node", ["services/schedule.js"]);
+	spawn("node", Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email));
+	console.log("schedule reminder funcitn done, now in submit remind");
 
     return models.Remind.create({
         category: req.body.remind_category,
