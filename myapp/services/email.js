@@ -64,6 +64,6 @@ class Email {
 }
 
 
- Email.send("mesage","smart.remind.com@gmail.com","title");
+//Email.send("mesage","smart.remind.com@gmail.com","title");
 
-
+module.exports = Email;
