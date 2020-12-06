@@ -47,7 +47,7 @@ router.post('/dashboard/remind/:remind_id/delete', isLoggedIn, user.delete_remin
 router.post('/dashboard/remind/:remind_id/delete-json', isLoggedIn, user.delete_remind_json);
 
 
-router.get('/dashboard/admin_reminds', isLoggedIn, user.admin_show_reminds);
+router.get('/dashboard/admin_reminds', isLoggedIn, hasAuth, user.admin_show_reminds);
 router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 
 
@@ -64,6 +64,10 @@ router.post('/dashboard/group/:group_id/delete-json', isLoggedIn, user.delete_gr
 router.get('/dashboard/admin_groups', isLoggedIn, user.admin_show_groups);
 router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 
+router.get('/dashboard/groups_search', isLoggedIn, user.groups_search);
+//router.get('/dashboard/group_info', isLoggedIn, user.group_info);
+router.get('/dashboard/group/:group_id/group_info', isLoggedIn, user.group_info);
+//router.post('/dashboard/group/:group_id/add', isLoggedIn, user.add_group);
 
 // users
 router.get('/dashboard/user/:user_id', isLoggedIn, user.show_user);
@@ -75,7 +79,7 @@ router.post('/dashboard/user/:user_id/delete-json', isLoggedIn, user.delete_user
 
 
 //userGroupRelations
-router.get('/dashboard/admin_userGroupRelations', isLoggedIn, user.admin_show_userGroupRelations);
+router.get('/dashboard/admin_userGroupRelations', isLoggedIn, hasAuth, user.admin_show_userGroupRelations);
 router.post('/dashboard/admin_userGroupRelation/:userGroupRelations_id/delete-json', isLoggedIn, user.delete_userGroupRelation_json);
 
 //calendar
@@ -85,8 +89,8 @@ router.get('/dashboard/calendar', isLoggedIn, user.get_calendar);
 
 
 // admin controlls
-router.get('/dashboard/admin', isLoggedIn, user.get_admin);
-router.get('/dashboard/admin_users', isLoggedIn, user.admin_show_users);
+router.get('/dashboard/admin', isLoggedIn, hasAuth, user.get_admin);
+router.get('/dashboard/admin_users', isLoggedIn, hasAuth, user.admin_show_users);
 
 router.get('/email', isLoggedIn, service.admin_get_email);
 router.post('/email', isLoggedIn, service.admin_send_email);

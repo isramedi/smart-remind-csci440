@@ -301,6 +301,15 @@ exports.show_group = function(req, res, next) {
 	});
 }
 
+
+exports.groups_search = function(req, res, next) {
+    return models.Group.findAll().then(groups => {
+        res.render('group/groups_search',{title: 'Express', groups: groups });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
+
+
 exports.admin_show_groups = function(req, res, next) {
     return models.Group.findAll().then(groups => {
         res.render('group/admin_groups',{title: 'Express', groups: groups });
@@ -326,6 +335,17 @@ exports.show_groups = function(req, res, next) {
     //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
 }
 
+
+
+exports.group_info = function(req, res, next) {
+    return models.Group.findOne({
+        where : {
+            id : req.params.group_id
+        }
+    }).then(group => {
+        res.render('group/group_info', { group : group });
+    });
+}
 //////////////
 
 
