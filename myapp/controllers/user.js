@@ -148,14 +148,11 @@ exports.submit_remind = function(req, res, next) {
     );
 
 	console.log("RUNNING SECHDUEL REMINDER FUNCION");
-    //Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email);
-	//spawn("node -e Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)");
-	//spawn("node -e 'require("../services/schedule").reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)'");
-	//spawn("node -e 'require('../services/schedule').reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)'");
-	//spawn("node -e Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email)");
-	//spawn("node", ["services/schedule.js"]);
+
 	spawn("node", Schedule.reminder(category, title, notes, dateOfRemind, type, urgency, UserId, email));
+
 	console.log("schedule reminder funcitn done, now in submit remind");
+	
 
     return models.Remind.create({
         category: req.body.remind_category,

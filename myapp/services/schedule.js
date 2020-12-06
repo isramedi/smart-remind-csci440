@@ -73,6 +73,17 @@ class Schedule {
 
     console.log(`Schedule submitted sucessfully`);
   }
+
+
+
+
+
+  //static async reminder_delete() {
+  //  console.log(`Deleting Remind ${error ? "error alert" : "Starting"}...`);
+  //
+  //
+  //  console.log(`Deleted Remind ${error ? "error alert" : "Successful"}...`);
+  //}
 }
 
 
