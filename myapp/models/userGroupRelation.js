@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.DATE
       },
+      //user_id: {
       user_id: {
       	type: DataTypes.UUID,
         references: {
@@ -28,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       group_id: {
+      //GroupId: {
       	type: DataTypes.UUID,
         references: {
               model: {
