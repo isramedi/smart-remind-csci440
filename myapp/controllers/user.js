@@ -14,6 +14,9 @@ const {validateCreateUserFields} = require('../validators/signup');
 // adding email functionality nodemailer
 const nodemailer = require('nodemailer');
 
+// sequlize operations
+const { Op } = require("sequelize");
+//const { model } = require("sequelize");
 
 //import email script
 const Email = require("../services/email");
@@ -328,7 +331,20 @@ exports.show_groups = function(req, res, next) {
     return models.Group.findAll({
 	    where : {
 		    creator_id : req.user.id
-	    }
+		    //creator_id: {
+		    //	[Op.or]: {
+		    //    	[Op.eq]: req.user.id,
+		    //    	//[Op.eq]: userGroupRelation.user_id,
+		    //    }
+		    //}
+	    },
+	    include: [{
+	            model: models.userGroupRelation,
+	            where: {
+	            	user_id: req.user.id
+	            }
+	    
+	    }]
     }).then(groups => {
         res.render('group/groups',{title: 'Express', groups: groups });
     })
@@ -346,6 +362,23 @@ exports.group_info = function(req, res, next) {
         res.render('group/group_info', { group : group });
     });
 }
+
+
+
+exports.add_group = function(req, res, next) {
+    //return models.Group.create({
+    //    name: req.body.group_name,
+    //    creator_id: req.user.id,
+    //}).then(groups => {
+	return models.userGroupRelation.create({
+        	user_id: req.user.id,
+        	group_id: req.params.group_id,
+    }).then(userGroupRelation => {
+        res.redirect('/dashboard/groups_search');
+    })
+    //})
+}
+
 //////////////
 
 

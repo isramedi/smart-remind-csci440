@@ -67,7 +67,7 @@ router.get('/dashboard/groups', isLoggedIn, user.show_groups);
 router.get('/dashboard/groups_search', isLoggedIn, user.groups_search);
 //router.get('/dashboard/group_info', isLoggedIn, user.group_info);
 router.get('/dashboard/group/:group_id/group_info', isLoggedIn, user.group_info);
-//router.post('/dashboard/group/:group_id/add', isLoggedIn, user.add_group);
+router.post('/dashboard/group/:group_id/add', isLoggedIn, user.add_group);
 
 // users
 router.get('/dashboard/user/:user_id', isLoggedIn, user.show_user);
