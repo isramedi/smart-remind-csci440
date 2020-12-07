@@ -38,6 +38,7 @@ router.post('/lead/:lead_id/delete-json', landing.delete_lead_json);
 
 // user log in only pages
 router.get('/dashboard', isLoggedIn, user.get_dashboard);
+router.get('/dashboard/remind', isLoggedIn, user.remind_homepage);
 router.get('/dashboard/create_remind', isLoggedIn, user.create_remind);
 router.post('/dashboard/create_remind', isLoggedIn, user.submit_remind);
 router.get('/dashboard/remind/:remind_id', isLoggedIn, user.show_remind);
@@ -52,6 +53,7 @@ router.get('/dashboard/reminds', isLoggedIn, user.show_reminds);
 
 
 // GROUP log in only pages
+router.get('/dashboard/group', isLoggedIn, user.group_homepage);
 router.get('/dashboard/create_group', isLoggedIn, user.create_group);
 router.post('/dashboard/create_group', isLoggedIn, user.submit_group);
 router.get('/dashboard/group/:group_id', isLoggedIn, user.show_group);
@@ -63,6 +65,10 @@ router.post('/dashboard/group/:group_id/delete-json', isLoggedIn, user.delete_gr
 
 router.get('/dashboard/admin_groups', isLoggedIn, user.admin_show_groups);
 router.get('/dashboard/groups', isLoggedIn, user.show_groups);
+
+
+router.get('/dashboard/groups_created', isLoggedIn, user.show_groups_created);
+router.get('/dashboard/groups_subscribed', isLoggedIn, user.show_groups_subscribed);
 
 router.get('/dashboard/groups_search', isLoggedIn, user.groups_search);
 //router.get('/dashboard/group_info', isLoggedIn, user.group_info);

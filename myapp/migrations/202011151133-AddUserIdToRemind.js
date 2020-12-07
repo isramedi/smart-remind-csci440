@@ -7,7 +7,8 @@ const columnAndTypes = [{
 			type: Sequelize.UUID, 
 			defaultValue: false,
 			allowNull: false, 
-			foreignKey: 'id'
+			foreignKey: 'id',
+			targetKey: 'UserId'
 		} 
 	} 
 }]; 

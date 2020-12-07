@@ -100,6 +100,16 @@ exports.get_dashboard = function(req, res, next) {
     res.render('dashboard/dashboard', {title: 'Express' , user: req.user });
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
 }
+
+
+
+exports.remind_homepage = function(req, res, next) {
+    res.render('remind/remind_homepage', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}
+
+
+
 exports.create_remind = function(req, res, next) {
     res.render('remind/create_remind', {title: 'Express' , user: req.user });
 	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
@@ -233,6 +243,10 @@ exports.delete_remind_json = function(req, res, next) {
 ////////// groups
 //////////////////
 
+exports.group_homepage = function(req, res, next) {
+    res.render('group/group_homepage', {title: 'Express' , user: req.user });
+	//res.render('dashboard/dashboard', { formData: {}, errors: {} });
+}
 
 exports.create_group = function(req, res, next) {
     res.render('group/create_group', {title: 'Express' , user: req.user });
@@ -289,7 +303,7 @@ exports.submit_group = function(req, res, next) {
 //	      user_id: creator_id
 //	    }
     }).then(userGroupRelation => {
-        res.redirect('/dashboard/groups');
+        res.redirect('/dashboard/groups_created');
     })
     })
 }
@@ -304,7 +318,7 @@ exports.show_group = function(req, res, next) {
 	});
 }
 
-
+// need to not include arelady in group
 exports.groups_search = function(req, res, next) {
     return models.Group.findAll().then(groups => {
         res.render('group/groups_search',{title: 'Express', groups: groups });
@@ -352,6 +366,29 @@ exports.show_groups = function(req, res, next) {
 }
 
 
+exports.show_groups_created = function(req, res, next) {
+    return models.Group.findAll({
+	    where : {
+		    creator_id : req.user.id
+	    }
+    }).then(groups => {
+        res.render('group/groups_created',{title: 'Express', groups: groups });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
+
+exports.show_groups_subscribed = function(req, res, next) {
+    return models.userGroupRelation.findAll({
+	    where : {
+		    UserId : req.user.id
+	    }
+    }).then(groups => {
+        res.render('group/groups_subscribed',{title: 'Express', groups: groups });
+    })
+    //res.render('remind/reminds', {title: 'Express' , reminds: req.user });
+}
+
+
 
 exports.group_info = function(req, res, next) {
     return models.Group.findOne({
@@ -371,8 +408,8 @@ exports.add_group = function(req, res, next) {
     //    creator_id: req.user.id,
     //}).then(groups => {
 	return models.userGroupRelation.create({
-        	user_id: req.user.id,
-        	group_id: req.params.group_id,
+        	UserId: req.user.id,
+        	GroupId: req.params.group_id,
     }).then(userGroupRelation => {
         res.redirect('/dashboard/groups_search');
     })

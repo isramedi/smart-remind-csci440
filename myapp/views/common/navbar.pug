@@ -1,5 +1,5 @@
 mixin navbar(user)
-  nav.navbar.navbar-expand.navbar-light.bg-light
+  nav.navbar.navbar-expand.navbar-light.bg-info
     a(href="/dashboard", aria-label="Golden Goose").navbar-brand.mr-0.mr-md-2
       //img(src="/images/golden-goose.svg", width="36", height="36")
     .collapse.navbar-collapse
@@ -15,9 +15,9 @@ mixin navbar(user)
     .navbar-right
       ul.navbar-nav.mr-auto
         li.nav-item
-          a.nav-link(href="/dashboard/groups") Groups
-        li.nav-item
-          a.nav-link(href="/dashboard/calendar") Calendar
+          a.nav-link(href="/dashboard/group") Groups
+        //li.nav-item
+        //  a.nav-link(href="/dashboard/calendar") Calendar
         li.nav-item
           a.nav-link(href="/dashboard/create_remind") Create Remind
         //li.nav-item

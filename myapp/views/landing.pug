@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   include common/head.pug
   +head("Starter MVP")
-  body
+  body.bg-grey
     header
       //include common/navbar.pug
       //+navbar(user)
@@ -12,11 +12,25 @@ html(lang='en')
       .container
         .row.align-items-center
           .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
-            h1.mb-3 Smart-Remind
-            p.lead Web App to never forget your importent events!
+            h1 Smart-Remind
+            a(href="https://github.com/isramedi/smart-remind-csci440").lead.mb-3.small About
+            br
+            br
+            p.lead Web App to never forget your important events!
             a(href="signup").lead.mb-4 Sign up
             p
             a(href="login").lead.mb-4 Login
+            br
+            br
+            br
+
+
+
+
+
+
+
+
             //form(action="/", method="POST")
             //  .input-group.mb-3
             //    input(name="lead_email", type="email", placeholder="Enter your email address").form-control

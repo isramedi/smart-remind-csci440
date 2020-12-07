@@ -14,8 +14,8 @@ html(lang='en')
               thead
                 tr
                   th(scope="col") userGroup_id
-                  th(scope="col") user_id
-                  th(scope="col") group_id
+                  th(scope="col") userId
+                  th(scope="col") Groupid
                   th(scope="col") USER DETAILS 
                   th(scope="col") GROUP DETAILS 
                   th(scope="col") Delete
@@ -26,13 +26,13 @@ html(lang='en')
                     td
                       span #{userGroupRelation.id}
                     td
-                      span #{userGroupRelation.user_id}
+                      span #{userGroupRelation.UserId}
                     td
-                      span #{userGroupRelation.group_id}
+                      span #{userGroupRelation.UserId}
                     td
-                      a(href="/dashboard/group/" + userGroupRelation.user_id) Details-USER
+                      a(href="/dashboard/group/" + userGroupRelation.UserId) Details-USER
                     td
-                      a(href="/dashboard/group/" + userGroupRelation.group_id) Details-GROUP
+                      a(href="/dashboard/group/" + userGroupRelation.Groupid) Details-GROUP
                     td
                       button(onclick=`deleteUserGroupRelation('${userGroupRelation.id}')`).btn.btn-primary Delete
     include ../common/footer.pug
