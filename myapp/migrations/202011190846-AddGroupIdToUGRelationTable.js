@@ -23,7 +23,7 @@
 'use strict'; 
 
 const columnAndTypes = [{ 
-	name: 'group_id', 
+	name: 'GroupId', 
 	type: (Sequelize) => { 
 		return { 
 			type: Sequelize.UUID, 

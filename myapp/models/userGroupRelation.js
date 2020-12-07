@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE
       },
       //user_id: {
-      user_id: {
+      UserId: {
       	type: DataTypes.UUID,
         references: {
               model: {
@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: false
       },
-      group_id: {
-      //GroupId: {
+      //group_id: {
+      GroupId: {
       	type: DataTypes.UUID,
         references: {
               model: {

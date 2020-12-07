@@ -282,8 +282,8 @@ exports.submit_group = function(req, res, next) {
         creator_id: req.user.id,
     }).then(groups => {
 	return models.userGroupRelation.create({
-        	user_id: req.user.id,
-        	group_id: groups.id,
+        	UserId: req.user.id,
+        	GroupId: groups.id,
 //    },{
 //	    where: {
 //	      user_id: creator_id
@@ -341,7 +341,7 @@ exports.show_groups = function(req, res, next) {
 	    include: [{
 	            model: models.userGroupRelation,
 	            where: {
-	            	user_id: req.user.id
+	            	UserId: req.user.id
 	            }
 	    
 	    }]
