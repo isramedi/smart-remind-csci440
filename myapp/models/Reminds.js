@@ -45,37 +45,37 @@ module.exports = (sequelize, DataTypes) => {
       	type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      //UserId: {
-      //	type: DataTypes.UUID,
-      //  references: {
-      //        model: {
-      //            tableName: 'Users',
-      //            schema: 'smart_remind_schema'
-      //        },
-      //        key: 'id'
-      //  },
-      //  allowNull: true
-      //},
-      //GroupId: {
-      //	type: DataTypes.UUID,
-      //  references: {
-      //        model: {
-      //            tableName: 'Groups',
-      //            schema: 'smart_remind_schema'
-      //        },
-      //        key: 'id'
-      //  },
-      //  allowNull: true
-      //}
+      UserId: {
+      	type: DataTypes.UUID,
+        references: {
+              model: {
+                  tableName: 'Users',
+                  schema: 'smart_remind_schema'
+              },
+              foriegnkey: 'id'
+        },
+        allowNull: true
+      },
+      GroupId: {
+      	type: DataTypes.UUID,
+        references: {
+              model: {
+                  tableName: 'Groups',
+                  schema: 'smart_remind_schema'
+              },
+              foriegnKeykey: 'id'
+        },
+        allowNull: true
+      }
   });
-  //Remind.associate = models => {
-  //  Remind.belongsTo(models.User, {
-  //    onDelete: "cascade"
-  //  });
-  //  Remind.belongsTo(models.Group, {
-  //    onDelete: "cascade"
-  //  });
-  //};
+  Remind.associate = models => {
+    Remind.belongsTo(models.User, {
+      onDelete: "cascade"
+    });
+    Remind.belongsTo(models.Group, {
+      onDelete: "cascade"
+    });
+  };
 
   return Remind;
 }
