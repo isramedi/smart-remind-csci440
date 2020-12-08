@@ -73,8 +73,11 @@ When you create a remind, a child process spawns and runs a schedule process, by
 
 # Students
 Israel Medina - Leader
+
 Marcellous Royal
+
 Rohim Dhaubhadel
+
 Anil Shah
 
 # License
