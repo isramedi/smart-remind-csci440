@@ -70,7 +70,12 @@ In order to make reminds work, as of now, may require for configuration in part 
 Once you signup using your email, and you have done the above, you will be able to make a remind, by which will send a remind to your email address.
 
 When you create a remind, a child process spawns and runs a schedule process, by which will only run once a certain time is reached (aka your remind time). Node-schedule, a npm dependency that is similar to a Cron job, is responsible to running at the desired time. Nodemailer is responsible for actually sending the email to your email.
- 
+
+# Students
+Israel Medina - Leader
+Marcellous Royal
+Rohim Dhaubhadel
+Anil Shah
 
 # License
 
